@@ -11,8 +11,8 @@ void setup()
 void loop()
 {
   char tour;
-  int nbAddress, broche, led, action = 0;
-  int addressPCF8574 [4] = {59, 60, 58, 57};                            // 59 = 0x3B 60 = 0x3C 58 = 0x3A 57 = 0x39
+  int nbAddress;
+  int addressPCF8574 [4] = {57, 58, 59, 60};                            // 57 = 0x39 58 = 0x3A 59 = 0x3B 60 = 0x3C 
   int lecturebrochePCF8574 [4][8] = {{1, 1, 1, 1, 1, 1, 1, 1},          //etat initiale du PCF8574
     {1, 1, 1, 1, 1, 1, 1, 1},
     {1, 1, 1, 1, 1, 1, 1, 1},
@@ -27,21 +27,19 @@ void loop()
   continu();
   tour = tirage();
   delay(400);
-  for (int test = 0; test < 10; test++)                                  //
+  for (int test = 0; test < 100; test++)                                  //
   {
     if (test == 4 || test == 5)
     {
-      for (int gain = 0; gain < 20; gain++)
-      {
         gainPv();
-      }
     }
     else if (test == 3 || test == 6)
     {
-      for (int pert = 0; pert < 20; pert++)
-      {
         pertPv();
-      }
+    }
+    else if (test == 7)
+    {
+      hasard();
     }
     for (nbAddress = 0; nbAddress < 4; nbAddress++)                     //
     {
@@ -54,9 +52,7 @@ void loop()
       }
       carte(lecturebrochePCF8574, ledRGB, nbAddress);
     }
-    tour=fin(tour);
-    Serial.println(tour);
+    tour=finTour(tour);
     delay(200);
-    
   }
 }

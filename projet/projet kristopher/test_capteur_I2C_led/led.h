@@ -4,11 +4,10 @@
 #include <Adafruit_NeoPixel.h>
 
 #define PIN 8
-#define NOMBRELED 28
+#define NOMBRELED 30
 #define DELAY1 20
 #define DELAY2 200
-#define DELAY3 20
-#define DELAY4 75
+#define DELAY3 75
 
 
 void continu();
@@ -18,10 +17,6 @@ void initialisationLed();
 void eteindre();
 
 void clignotement(int allumer);
-
-void allumage();
-
-void reverse();
 
 void unique(int seul, int presence);
 
@@ -33,6 +28,8 @@ void carte(int (*tabBroche)[8],int (*tabLed)[7],int numAddress);
 
 char tirage();
 
-char fin(char change);
+void hasard();
+
+char finTour(char change);
 
 #endif

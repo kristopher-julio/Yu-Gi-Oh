@@ -46,10 +46,10 @@ void loop()
         {
           Serial.print(lecturebrochePCF8574[address][i]);
         }
+        Serial.println("");
       }
-      Serial.println("");
-      Serial.println("");
-      delay(1000);
+      Serial.println(""); 
     }
+    delay(4000);
   }
 }
